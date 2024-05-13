@@ -150,15 +150,13 @@ def evaluate(
         exp_id = str(uuid.uuid4())
     pickle_path = f"{exp_id}_results.pickle"
     pickle.dump(results, open(pickle_path, "wb"))
+    logger.info(f"Results saved to {pickle_path}")
     try:
         pickle2_path = f"/content/output.pickle"
         pickle.dump(results, open(pickle2_path, "wb"))
         logger.info(f"Results saved to {pickle2_path}")
     except:
-        pickle_path = f"{exp_id}_results.pickle"
-        pickle.dump(results, open(pickle_path, "wb"))
-        logger.info(f"Results saved to {pickle_path}")
-
+        pass
     return pass_1
 
 
